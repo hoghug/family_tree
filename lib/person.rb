@@ -11,6 +11,10 @@ class Person < ActiveRecord::Base
     end
   end
 
+  def have_child(name, gender)
+    child = Person.create(:name => name, :gender => gender, :parent1_id => id, :parent2_id => spouse_id )
+  end
+
 private
 
   def make_marriage_reciprocal
